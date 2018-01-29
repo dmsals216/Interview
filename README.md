@@ -213,11 +213,63 @@
  * 정렬 방법들
  
 > 1. 버블 정렬
+> 
+> > * Source
+> > ```Java
+> > public int[] bubblesort(int[] numbers) {
+> > 	int temp = 0;
+> > 	for(int i = 0; i < numbers.length; i++) {
+> > 		for(int j = 0; j < numbers.length - 1 - i; j++) {
+> > 			if(numbers[j] > numbers[j + 1]) {
+> > 				temp = numbers[j];
+> > 				numbers[j] = numbers[j+1];
+> > 				numbers[j+1] = temp;
+> > 			}
+> > 		}
+> > 	}
+> > 	return numbers;
+> > }
+> > ```
+
 > 2. 삽입 정렬
-> 3. 퀵 정렬
-> 4. 병합 정렬
+> 
+> > * Source
+> > 
+> > ```Java
+> > public int[] insertSort(int[] numbers) {
+> > 	int temp = 0;
+> > 	int j = 0;
+> > 	for(int i = 1; i < numbers.length; i++) {
+> > 		temp = numbers[i];
+> > 		for(j = i - 1; j >= 0 && temp < numbers[j]; j--) {
+> > 			numbers[j + 1] = numbers[j];
+> > 		}
+> > 		numbers[j + 1] = temp;
+> > 	}
+> > 	return numbers;
+> > }
+> > ```
 
 3. 리스트 검색하기
+
+> * 이진검색
+> 
+> ```Java
+> private int binarySearch(int[] array, int value, int low, int high) {
+> 	if(low > high) {
+> 		return -1;
+> 	}
+> 	int mid = (low + high) / 2;
+> 	if(array[mid] > value) {
+> 		return binarySearch(array, value, low, mid - 1);
+> 	}else if(array[mid] < value) {
+> 		return binarySearch(array, value, mid + 1, high);
+> 	}else {
+> 		return mid;
+> 	}
+> }
+> ```
+
 
 ## 자료구조
 
@@ -298,14 +350,6 @@
 2. 동시성 작업하기
 
 3. 액터
-
-## 자바 애플리케션과 데이터베이스 통합하기
-
-1. SQL 소개
-
-2. 자바와 데이터베이스를 연결하는 JDBC
-
-3. 인메모리 데이터베이스 테스팅
 
 ## 안드로이드
 
